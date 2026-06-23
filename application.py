@@ -3,9 +3,8 @@ from flask import Flask,render_template,request
 from src.pipeline.predict_pipeline import CustomData,PredictPipeline
 application = Flask(__name__)
 
-app = application
 
-@app.route("/",methods=['GET','POST'])
+@application.route("/",methods=['GET','POST'])
 def renderform():
     if request.method == 'GET':
        return render_template('home.html')
@@ -31,4 +30,4 @@ def renderform():
         return render_template('home.html',results=results[0])
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0")   
+    application.run(host="0.0.0.0")   
